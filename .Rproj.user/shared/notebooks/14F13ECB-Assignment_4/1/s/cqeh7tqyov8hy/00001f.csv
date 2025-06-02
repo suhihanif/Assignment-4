@@ -1,3 +1,0 @@
-"0",""
-"0","# save table 2 "
-"0","write.csv(tableit, ""3-output/reg_out1.csv"", row.names = FALSE)"

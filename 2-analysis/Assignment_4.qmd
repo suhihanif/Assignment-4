@@ -39,7 +39,7 @@ colSums(is.na(d)) # no missing values
 
 #### Description of the dataset
 
-We used a simulated a cross-sectional dataset of `r nrow(d)` observations. Our primary outcome is the presence of absence of any cardiac event in the past five years. Our exposure is being a smoker versus not being a smoker during this period. Our dataset included the covariates sex, age and cost of any medical treatment incurred during the study period. The variable sex was coded as a binary variable (reference group is males) while age (years) and cost ($) where continuous. The code and data used to generate this report can be found at <https://github.com/suhihanif/Assignment2/tree/suhi>.
+We used a simulated a cross-sectional dataset of `r nrow(d)` observations. Our primary outcome is the presence of absence of any cardiac event in the past five years. Our exposure is being a smoker versus not being a smoker during this period. Our dataset included the covariates sex, age and cost of any medical treatment incurred during the study period. The variable sex was coded as a binary variable (reference group is males) while age (years) and cost ($) where continuous. The code and data used to generate this report can be found at <https://github.com/suhihanif/Assignment-4>.
 
 #### Primary analysis
 
