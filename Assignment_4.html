@@ -149,13 +149,15 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Additionally, we are interested in seeing if for simulated dataset to produce a reproducible document.</p>
+<p>Simulated data can be used to conduct reproducible research in cases where sensitive population health data are unavailable or restricted <span class="citation" data-cites="Shepherd2017-qn">(<a href="#ref-Shepherd2017-qn" role="doc-biblioref">Shepherd et al. 2017</a>)</span>. The goal of this report is to use a simulated dataset to answer a population health research question while generating a reproducible analysis and report. This analysis has two aims: (1) Evaluate the association between smoking and any cardiac event, (2) Evaluate effect modification by cost for the relationship between smoking and any cardiac event.</p>
+<p>Cardiac disease is the leading cause of death for both men and women, and people of most racial groups in the US [<span class="citation" data-cites="UnknownUnknown-fk"><span>“Multiple Cause of Death Data on <span>CDC</span> <span>WONDER</span>”</span> (<a href="#ref-UnknownUnknown-fk" role="doc-biblioref">n.d.</a>)</span>; <span class="citation" data-cites="Flora2019-no">(<a href="#ref-Flora2019-no" role="doc-biblioref">Flora and Nayak 2019</a>)</span>. The economic burden associated with cardiac disease in the US was estimated to be $252 billion between 2019 and 2020 <span class="citation" data-cites="CDC2025-ou">(<a href="#ref-CDC2025-ou" role="doc-biblioref">CDC 2025</a>)</span>. Smoking is a well-established risk factor for cardiac disease <span class="citation" data-cites="Martin2024-sn D-Alessandro2012-pa">(<a href="#ref-Martin2024-sn" role="doc-biblioref">Martin et al. 2024</a>; <a href="#ref-D-Alessandro2012-pa" role="doc-biblioref">D’Alessandro et al. 2012</a>)</span>. Additionally, the cost of medical treatment may potentially modify the association between smoking and cardiac events, either by affecting access to care or through other socioeconomic mechanisms.</p>
+<hr>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <section id="description-of-the-dataset" class="level4">
 <h4 class="anchored" data-anchor-id="description-of-the-dataset">Description of the dataset</h4>
-<p>We used a simulated a cross-sectional dataset of 5000 observations. Our primary outcome is the presence of absence of any cardiac event in the past five years. Our exposure is being a smoker versus not being a smoker during this period. Our dataset included the covariates sex, age and cost of any medical treatment incurred during the study period. The variable sex was coded as a binary variable (reference group is males) while age (years) and cost ($) where continuous. The code and data used to generate this report can be found at <a href="https://github.com/suhihanif/Assignment2/tree/suhi" class="uri">https://github.com/suhihanif/Assignment2/tree/suhi</a>.</p>
+<p>We used a simulated a cross-sectional dataset of 5000 observations. Our primary outcome is the presence of absence of any cardiac event in the past five years. Our exposure is being a smoker versus not being a smoker during this period. Our dataset included the covariates sex, age and cost of any medical treatment incurred during the study period. The variable sex was coded as a binary variable (reference group is males) while age (years) and cost ($) where continuous. The code and data used to generate this report can be found at <a href="https://github.com/suhihanif/Assignment-4" class="uri">https://github.com/suhihanif/Assignment-4</a>.</p>
 </section>
 <section id="primary-analysis" class="level4">
 <h4 class="anchored" data-anchor-id="primary-analysis">Primary analysis</h4>
@@ -264,12 +266,18 @@ Cardiac Event
 <p><img src="3-output/box_plot_age_cardiac.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
 </figure>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>Figure1: Box plot of participants’ age grouped by cardiac event status</figcaption>
+<p><img src="2-output/box_plot_age_cardiac.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
 <p>On average, partcipants who experienced cardiac events had higher treatment costs (range: $8902 to $10790) compared to participants who did not experience cardiac events (range: $7878 to $10573) with overlap in the distribution of costs between the two groups. Figure 2 shows the distribution of treatment costs by cardiac event status.</p>
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figcaption>Figure2: Density plot of cost of treatment by cardiac event status</figcaption>
-<p><img src="3-output/density_plot_cost_cardiac.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="2-output/density_plot_cost_cardiac.jpg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 <div class="cell">
@@ -418,25 +426,26 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] kableExtra_1.4.0 knitr_1.48       lubridate_1.9.3  forcats_1.0.0   
- [5] stringr_1.5.1    dplyr_1.1.4      purrr_1.0.2      readr_2.1.5     
- [9] tidyr_1.3.1      tibble_3.2.1     ggplot2_3.5.1    tidyverse_2.0.0 
-[13] pacman_0.5.1    
+ [1] styler_1.10.3    kableExtra_1.4.0 knitr_1.48       lubridate_1.9.3 
+ [5] forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4      purrr_1.0.2     
+ [9] readr_2.1.5      tidyr_1.3.1      tibble_3.2.1     ggplot2_3.5.1   
+[13] tidyverse_2.0.0  pacman_0.5.1    
 
 loaded via a namespace (and not attached):
  [1] utf8_1.2.4        generics_0.1.3    xml2_1.3.6        stringi_1.8.4    
  [5] hms_1.1.3         digest_0.6.37     magrittr_2.0.3    evaluate_1.0.0   
- [9] grid_4.4.1        timechange_0.3.0  fastmap_1.2.0     jsonlite_1.8.9   
-[13] fansi_1.0.6       viridisLite_0.4.2 scales_1.3.0      textshaping_0.4.0
-[17] cli_3.6.3         crayon_1.5.3      rlang_1.1.4       bit64_4.5.2      
-[21] munsell_0.5.1     withr_3.0.1       yaml_2.3.10       parallel_4.4.1   
-[25] tools_4.4.1       tzdb_0.4.0        colorspace_2.1-1  vctrs_0.6.5      
-[29] R6_2.5.1          lifecycle_1.0.4   htmlwidgets_1.6.4 bit_4.5.0        
-[33] vroom_1.6.5       ragg_1.3.3        pkgconfig_2.0.3   pillar_1.9.0     
-[37] gtable_0.3.5      glue_1.8.0        systemfonts_1.2.3 highr_0.11       
-[41] xfun_0.47         tidyselect_1.2.1  rstudioapi_0.16.0 farver_2.1.2     
-[45] htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.28    svglite_2.2.1    
-[49] compiler_4.4.1   </code></pre>
+ [9] grid_4.4.1        timechange_0.3.0  fastmap_1.2.0     R.oo_1.26.0      
+[13] R.cache_0.17.0    jsonlite_1.8.9    R.utils_2.12.3    fansi_1.0.6      
+[17] viridisLite_0.4.2 scales_1.3.0      textshaping_0.4.0 cli_3.6.3        
+[21] crayon_1.5.3      rlang_1.1.4       R.methodsS3_1.8.2 bit64_4.5.2      
+[25] munsell_0.5.1     withr_3.0.1       yaml_2.3.10       parallel_4.4.1   
+[29] tools_4.4.1       tzdb_0.4.0        colorspace_2.1-1  vctrs_0.6.5      
+[33] R6_2.5.1          lifecycle_1.0.4   bit_4.5.0         htmlwidgets_1.6.4
+[37] vroom_1.6.5       ragg_1.3.3        pkgconfig_2.0.3   pillar_1.9.0     
+[41] gtable_0.3.5      glue_1.8.0        systemfonts_1.2.3 highr_0.11       
+[45] xfun_0.47         tidyselect_1.2.1  rstudioapi_0.16.0 farver_2.1.2     
+[49] htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.28    svglite_2.2.1    
+[53] compiler_4.4.1   </code></pre>
 </div>
 </div>
 </div>
@@ -445,11 +454,23 @@ loaded via a namespace (and not attached):
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-CDC2025-ou" class="csl-entry" role="listitem">
+CDC. 2025. <span>“Heart Disease Facts.”</span> <a href="https://www.cdc.gov/heart-disease/data-research/facts-stats/index.html" class="uri">https://www.cdc.gov/heart-disease/data-research/facts-stats/index.html</a>.
+</div>
 <div id="ref-D-Alessandro2012-pa" class="csl-entry" role="listitem">
 D’Alessandro, Alessandra, Irina Boeckelmann, Matthias Hammwhöner, and Andreas Goette. 2012. <span>“Nicotine, Cigarette Smoking and Cardiac Arrhythmia: An Overview.”</span> <em>Eur. J. Prev. Cardiol.</em> 19 (3): 297–305.
 </div>
+<div id="ref-Flora2019-no" class="csl-entry" role="listitem">
+Flora, Gagan D, and Manasa K Nayak. 2019. <span>“A Brief Review of Cardiovascular Diseases, Associated Risk Factors and Current Treatment Regimes.”</span> <em>Curr. Pharm. Des.</em> 25 (38): 4063–84.
+</div>
 <div id="ref-Martin2024-sn" class="csl-entry" role="listitem">
 Martin, Seth S, Aaron W Aday, Zaid I Almarzooq, Cheryl A M Anderson, Pankaj Arora, Christy L Avery, Carissa M Baker-Smith, et al. 2024. <span>“2024 Heart Disease and Stroke Statistics: A Report of <span>US</span> and Global Data from the American Heart Association.”</span> <em>Circulation</em> 149 (8): e347–913.
+</div>
+<div id="ref-UnknownUnknown-fk" class="csl-entry" role="listitem">
+<span>“Multiple Cause of Death Data on <span>CDC</span> <span>WONDER</span>.”</span> n.d. <a href="https://wonder.cdc.gov/mcd.html" class="uri">https://wonder.cdc.gov/mcd.html</a>.
+</div>
+<div id="ref-Shepherd2017-qn" class="csl-entry" role="listitem">
+Shepherd, Bryan E, Meridith Blevins Peratikos, Peter F Rebeiro, Stephany N Duda, and Catherine C McGowan. 2017. <span>“A Pragmatic Approach for Reproducible Research with Sensitive Data.”</span> <em>Am. J. Epidemiol.</em> 186 (4): 387–92.
 </div>
 </div></section></div></main>
 <!-- /main column -->
