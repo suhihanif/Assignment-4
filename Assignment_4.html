@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assignment 4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="Assignment_4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/quarto.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/popper.min.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Assignment_4_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Assignment_4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Assignment_4_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Assignment_4_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Assignment_4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Assignment_4_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Assignment_4_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="Assignment_4_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment 4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Additionally, we are interested in seeing if for simulated dataset to produce a reproducible document.</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<section id="description-of-the-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="description-of-the-dataset">Description of the dataset</h4>
+<p>We used a simulated a cross-sectional dataset of 5000 observations. Our primary outcome is the presence of absence of any cardiac event in the past five years. Our exposure is being a smoker versus not being a smoker during this period. Our dataset included the covariates sex, age and cost of any medical treatment incurred during the study period. The variable sex was coded as a binary variable (reference group is males) while age (years) and cost ($) where continuous. The code and data used to generate this report can be found at <a href="https://github.com/suhihanif/Assignment2/tree/suhi" class="uri">https://github.com/suhihanif/Assignment2/tree/suhi</a>.</p>
+</section>
+<section id="primary-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="primary-analysis">Primary analysis</h4>
+<p>For our first aim, we fit a generalized linear model with a binomial family to evaluate the association between smoking and experiencing a cardiac event, adjusting for sex and age. Below is our regression model for aim 1:</p>
+<p><br><br>
+<span class="math display">\[
+\text{logit}(E[Y \mid X]) = \text{logit}(p(\text{cardiac event}))) = \beta_0 + \beta_1\,\text{smoking} + \beta_2\,\text{sex} + \beta_3\,\text{age}\]</span></p>
+<p><br></p>
+<ul>
+<li><p>The intercept <span class="math inline">\(\beta_0\)</span> represents the log odds of experiencing a cardiac event in male non-smokers with age 0 years</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_1\,\text{smoking}\)</span> represents the change in the log odds of experiencing a cardiac events for participants who ever smoked during the study period compared to participants who did not, holding age and sex constant</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_2\,\text{sex}\)</span> represents the change in the log odds of experiencing a cardiac events for female participants compared to male participants, holding smoking status and age constant</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_3\,\text{age}\)</span> represents the change in the log odds of experiencing a cardiac events for each additional year of age, holding smoking status and sex constant</p></li>
+</ul>
+</section>
+<section id="secondary-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="secondary-analysis">Secondary analysis</h4>
+<p>For our second aim, we were interested to see if the cost of medical treatments during the study period modified the relationship between smoking and having a cardiac event. Below is our regression model for aim2:</p>
+<p><br></p>
+<p><span class="math display">\[
+\text{logit}(E[Y \mid X]) = \text{logit}(p(\text{cardiac event}))) = \beta_0 + \beta_1\,\text{smoking} + \beta_2\,\text{sex} + \beta_3\,\text{age} + \beta_4\,\text{cost} + \beta_5\,\text{smoking}*\text{cost}\]</span></p>
+<p><br></p>
+<ul>
+<li><p>The intercept <span class="math inline">\(\beta_0\)</span> represents the log odds of experiencing a cardiac event in male non-smokers with age 0 years and cost of medical treatment $0.</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_1\,\text{smoking}\)</span> represents the change in the log odds of experiencing a cardiac events for participants who ever smoked during the study period compared to participants who did not, holding age, sex and cost constant</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_2\,\text{sex}\)</span> represents the change in the log odds of experiencing a cardiac events for female participants compared to male participants, holding smoking status, age and cost constant</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_3\,\text{age}\)</span> represents the change in the log odds of experiencing a cardiac events for each additional year of age, holding smoking status, sex and cost constant</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_4\,\text{cost}\)</span> represents the change in the log odds of experiencing a cardiac events for each additional dollar spent on medical treatment, holding smoking status, sex and age constant</p></li>
+<li><p>The coefficient <span class="math inline">\(\beta_5\,\text{smoking}*{cost}\)</span> represents the additional change in the log odds of experiencing a cardiac events for each additional dollar spent on treatment for participants who ever smoked compared to participants who did not, holding sex and age constant</p></li>
+</ul>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table 1: Characteristics of study participants</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide;"></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+No Cardiac Event
+</div></th>
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cardiac Event
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean/% (control)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N (control)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean/%</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Smoker</td>
+<td style="text-align: left;">13.8%</td>
+<td style="text-align: right;">4750</td>
+<td style="text-align: left;">53.2%</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Is female</td>
+<td style="text-align: left;">57.8%</td>
+<td style="text-align: right;">4750</td>
+<td style="text-align: left;">11.6%</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age (years)</td>
+<td style="text-align: left;">43.9</td>
+<td style="text-align: right;">4750</td>
+<td style="text-align: left;">45.5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cost of treatment ($)</td>
+<td style="text-align: left;">9127.5</td>
+<td style="text-align: right;">4750</td>
+<td style="text-align: left;">9892.3</td>
+<td style="text-align: right;">250</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>Table 1 shows the characteristics of study participants. Out of 5000 participants, 250 experienced a cardiac event. Among participants with no cardiac events, 13.8%% were smokers and 57.8%% were female. Among participants who experienced cardiac events, 53.2%% were smokers and 11.6%% were female. Participants who experienced cardiac events were on average older (mean age 45.5 years) and had spent more on medical treatment (mean cost $9892.3).</p>
+<p>The median age for participants who had a cardiac event was slightly higher (46 years) than the median age (44 years) for participants who did not have a cardiac event (Figure 1). The simulated dataset did not contain any outliers for age.</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>Figure1: Box plot of participants’ age grouped by cardiac event status</figcaption>
+<p><img src="3-output/box_plot_age_cardiac.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>On average, partcipants who experienced cardiac events had higher treatment costs (range: $8902 to $10790) compared to participants who did not experience cardiac events (range: $7878 to $10573) with overlap in the distribution of costs between the two groups. Figure 2 shows the distribution of treatment costs by cardiac event status.</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>Figure2: Density plot of cost of treatment by cardiac event status</figcaption>
+<p><img src="3-output/density_plot_cost_cardiac.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table 2: Adjusted associations between smoking status, sex, age and cardiac events</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Odds Ratio</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Lower</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Upper</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">P value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: left;">0.04</td>
+<td style="text-align: left;">0.03</td>
+<td style="text-align: left;">0.07</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smoker</td>
+<td style="text-align: left;">8.26</td>
+<td style="text-align: left;">6.27</td>
+<td style="text-align: left;">10.89</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Is female</td>
+<td style="text-align: left;">0.08</td>
+<td style="text-align: left;">0.06</td>
+<td style="text-align: left;">0.13</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age (years)</td>
+<td style="text-align: left;">1.01</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">1.02</td>
+<td style="text-align: left;">0.084</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><br></p>
+<p>Results from the primary analysis are presented in Table 2. Being a smoker was associated with higher odds of experiencing a cardiac event compared to being a non-smoker (OR 8.26, 95% CI: 6.27–10.89, <em>p</em> = 0.000). Being female was associated with lower odds of cardiac events compared to being male (OR 0.08, 95% CI: 0.06–0.13, <em>p</em> = 0.000). Age was not significantly associated with experiencing a cardiac event (OR: 1.01, 95% CI: 1.00–1.02, <em>p</em> = 0.084).</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table 3: Effect modification by cost of treatment</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Odds Ratio</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Lower</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Upper</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">P value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smoker</td>
+<td style="text-align: left;">1.13</td>
+<td style="text-align: left;">0.68</td>
+<td style="text-align: left;">1.87</td>
+<td style="text-align: left;">0.633</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Is female</td>
+<td style="text-align: left;">0.86</td>
+<td style="text-align: left;">0.85</td>
+<td style="text-align: left;">0.88</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age (years)</td>
+<td style="text-align: left;">1.01</td>
+<td style="text-align: left;">1.01</td>
+<td style="text-align: left;">1.01</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cost of treatment ($)</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.00</td>
+<td style="text-align: left;">0.46</td>
+<td style="text-align: left;">0.038</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smoker × Cost interaction</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">1.00</td>
+<td style="text-align: left;">0.112</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>The interaction between smoking and cost of treatment was not statistically significant (OR 1.00, 95% CI: 1.00–1.00, <em>p</em> = 0.112). Therefore, there is no evidence that the adjusted association between cardiac events and smoking status is modified by the cost of treatment.</p>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>In our primary analysis, we found that cardiac events were significantly associated with smoking. In our secondary analysis, we found no evidence of effect modification of the relationship between smoking and cardiac events by cost of treatment. Our results for our primary analysis are similar to other studies done in the US that found smoking to be associated with an increased risk of cardiac events <span class="citation" data-cites="D-Alessandro2012-pa Martin2024-sn">(<a href="#ref-D-Alessandro2012-pa" role="doc-biblioref">D’Alessandro et al. 2012</a>; <a href="#ref-Martin2024-sn" role="doc-biblioref">Martin et al. 2024</a>)</span>. A possible mechanism by which smoking affects cardiac events is that compounds in cigarette smoke lead to oxidative stress, which causes fibrosis in cardiac tissue <span class="citation" data-cites="D-Alessandro2012-pa">(<a href="#ref-D-Alessandro2012-pa" role="doc-biblioref">D’Alessandro et al. 2012</a>)</span>. Similarly, in another study of cardiac hospitalizations in the US between 2012 and 2018, smoking was significantly associated with joint opioid use and cardiac events <span class="citation" data-cites="Martin2024-sn">(<a href="#ref-Martin2024-sn" role="doc-biblioref">Martin et al. 2024</a>)</span>.</p>
+<p>A limitation of this study is that the cohort dataset included very few covariates. As a result, the analyses may have been confounded by omitted variable bias. The cohort data is also simulated, and may not have the properties or real-world distributions of covariates that would be found in actual patient data. Future analyses could be carried out with a synthetic dataset that contains information on all potential confounders of the relationship between smoking and cardiac events, such as race, socioeconomic status, exercise levels, and other relevant variables.</p>
+<p>In conclusion, smoking was significantly associated with cardiac events in this analysis but there was no effect modification by cost of treatment using a simulated dataset.</p>
+<p><br></p>
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+<p>Session Information</p>
+</button>
+<div id="collapseOne" class="accordion-collapse collapse">
+<div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.1 (2024-06-14)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sonoma 14.6.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] kableExtra_1.4.0 knitr_1.48       lubridate_1.9.3  forcats_1.0.0   
+ [5] stringr_1.5.1    dplyr_1.1.4      purrr_1.0.2      readr_2.1.5     
+ [9] tidyr_1.3.1      tibble_3.2.1     ggplot2_3.5.1    tidyverse_2.0.0 
+[13] pacman_0.5.1    
+
+loaded via a namespace (and not attached):
+ [1] utf8_1.2.4        generics_0.1.3    xml2_1.3.6        stringi_1.8.4    
+ [5] hms_1.1.3         digest_0.6.37     magrittr_2.0.3    evaluate_1.0.0   
+ [9] grid_4.4.1        timechange_0.3.0  fastmap_1.2.0     jsonlite_1.8.9   
+[13] fansi_1.0.6       viridisLite_0.4.2 scales_1.3.0      textshaping_0.4.0
+[17] cli_3.6.3         crayon_1.5.3      rlang_1.1.4       bit64_4.5.2      
+[21] munsell_0.5.1     withr_3.0.1       yaml_2.3.10       parallel_4.4.1   
+[25] tools_4.4.1       tzdb_0.4.0        colorspace_2.1-1  vctrs_0.6.5      
+[29] R6_2.5.1          lifecycle_1.0.4   htmlwidgets_1.6.4 bit_4.5.0        
+[33] vroom_1.6.5       ragg_1.3.3        pkgconfig_2.0.3   pillar_1.9.0     
+[37] gtable_0.3.5      glue_1.8.0        systemfonts_1.2.3 highr_0.11       
+[41] xfun_0.47         tidyselect_1.2.1  rstudioapi_0.16.0 farver_2.1.2     
+[45] htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.28    svglite_2.2.1    
+[49] compiler_4.4.1   </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-D-Alessandro2012-pa" class="csl-entry" role="listitem">
+D’Alessandro, Alessandra, Irina Boeckelmann, Matthias Hammwhöner, and Andreas Goette. 2012. <span>“Nicotine, Cigarette Smoking and Cardiac Arrhythmia: An Overview.”</span> <em>Eur. J. Prev. Cardiol.</em> 19 (3): 297–305.
+</div>
+<div id="ref-Martin2024-sn" class="csl-entry" role="listitem">
+Martin, Seth S, Aaron W Aday, Zaid I Almarzooq, Cheryl A M Anderson, Pankaj Arora, Christy L Avery, Carissa M Baker-Smith, et al. 2024. <span>“2024 Heart Disease and Stroke Statistics: A Report of <span>US</span> and Global Data from the American Heart Association.”</span> <em>Circulation</em> 149 (8): e347–913.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
